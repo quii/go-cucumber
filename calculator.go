@@ -10,12 +10,20 @@ func (c *Calculator) EnterNumber(x int) {
 }
 
 func (c *Calculator) Add() {
-	c.result = 0
-	for _, n := range c.numbers {
-		c.result += n
-	}
+	c.result = c.numbers[0] + c.numbers[1] // naive, idc
+}
+
+func (c *Calculator) Multiply() {
+	c.result = c.numbers[0] * c.numbers[1] // naive, idc
 }
 
 func (c *Calculator) Result() int {
-	return c.result
+	result := c.result
+	c.clear()
+	return result
+}
+
+func (c *Calculator) clear() {
+	c.numbers = []int{}
+	c.result = 0
 }
